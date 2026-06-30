@@ -35,10 +35,10 @@ begin
     #20; rst = 0;
 
     #50;
-    ped_req = 1;     // pulse during NS_GREEN, well before yellow
+    ped_req = 1;    
     #10;
     ped_req = 0;
-    #150;            // should see S_PED entered during this window
+    #150;            
 
     #150;
     emergency_NS = 1;
@@ -51,7 +51,7 @@ begin
     emergency_EW = 0;
     #100;
 
-    ped_req = 1;     // pulse during EW_GREEN
+    ped_req = 1;    
     #10;
     ped_req = 0;
     #150;
