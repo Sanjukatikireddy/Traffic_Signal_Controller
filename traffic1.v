@@ -22,10 +22,8 @@ parameter S_EM_EW      = 3'd6;
 
 reg [2:0] state;
 reg [4:0] timer;
-reg       ped_req_latch;   // <-- NEW: holds the request until serviced
+reg       ped_req_latch;   
 
-// ---- Pedestrian request latch ----
-// Sets the moment ped_req goes high, clears only when request is serviced (entering S_PED)
 always @(posedge clk or posedge rst)
 begin
     if (rst)
@@ -74,7 +72,7 @@ begin
                 begin
                     if (timer == 1)
                     begin
-                        if (ped_req_latch)          // <-- use latched value
+                        if (ped_req_latch)          //  use latched value
                             state <= S_PED;
                         else
                             state <= S_EW_GREEN;
@@ -99,7 +97,7 @@ begin
                 begin
                     if (timer == 1)
                     begin
-                        if (ped_req_latch)          // <-- use latched value
+                        if (ped_req_latch)          //  use latched value
                             state <= S_PED;
                         else
                             state <= S_NS_GREEN;
